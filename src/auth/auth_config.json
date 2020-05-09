@@ -1,0 +1,6 @@
+{
+  "domain": "dev-sigsiroos.eu.auth0.com",
+  "clientId": "76Rq2YaGjBnHWm5bEgKe0zRLzlYik4A9",
+  "redirect_uri": "http://localhost:3000",
+  "audience": "https://instagram-clone-postgres.herokuapp.com/v1/graphql"
+}
