@@ -12,9 +12,8 @@ import SecuredRoute from "./SecuredRoute";
 import Upload from "./Upload";
 import { useAuth0 } from "../auth/react-auth0-wrapper";
 
-
 function App() {
-  const { isAuthenticated, user } = useAuth0();
+  const { isAuthenticated } = useAuth0();
 
   // used state to get accessToken through getTokenSilently(), the component re-renders when state changes, thus we have
   // our accessToken in apollo client instance.
@@ -76,7 +75,7 @@ function App() {
         <SecuredRoute path={"/user/:id"} component={Profile} />
       </Switch>
     </ApolloProvider>
- );
+  );
 }
 
 export default App;
