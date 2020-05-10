@@ -4,8 +4,11 @@ import { ApolloClient, HttpLink, InMemoryCache } from "apollo-boost";
 import { setContext } from "apollo-link-context";
 import { Switch, Route } from "react-router-dom";
 import "../styles/App.css";
-import Header from "./Header.js";
+import Header from "./Header";
 import Feed from "./Feed";
+import Post from "./Post";
+import Profile from "./Profile";
+import SecuredRoute from "./SecuredRoute";
 import { useAuth0 } from "../auth/react-auth0-wrapper";
 
 
@@ -67,9 +70,11 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={Feed} />
+        <Route path={"/post/:id"} component={Post} />
+        <SecuredRoute path={"/user/:id"} component={Profile} />
       </Switch>
     </ApolloProvider>
-  );
+ );
 }
 
 export default App;

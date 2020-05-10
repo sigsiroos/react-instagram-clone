@@ -4,7 +4,7 @@ import { gql } from "apollo-boost";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { useAuth0 } from "../auth/react-auth0-wrapper";
 import { Button } from "react-bootstrap";
-import { NUMBER_OF_FOLLOWERS, NUMBER_OF_FOLLOWING } from "./Profile.js";
+import { NUMBER_OF_FOLLOWERS, NUMBER_OF_FOLLOWING } from "./Profile";
 
 const FETCH_FOLLWERS = gql`
   query($followingId: String!, $userId: String!) {

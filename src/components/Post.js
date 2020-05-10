@@ -3,8 +3,8 @@ import "../styles/App.css";
 import { gql } from "apollo-boost";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
-import Like from "./Like.js";
-import { timeDifferenceForDate } from "../utils/TimeDifference.js";
+import Like from "./Like";
+import { timeDifferenceForDate } from "../utils/TimeDifference";
 import { Container } from "react-bootstrap";
 
 export const POST_INFO = gql`
