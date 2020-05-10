@@ -96,7 +96,7 @@ function Follow({ id }) {
   const { loading: fetchFollowersLoading, data } = useQuery(FETCH_FOLLWERS, {
     variables: { followingId: id, userId: userId.current },
     onError: (e) => {
-      return `Error! ${e.message}`;
+      throw new Error (`Error! ${e.message}`)
     },
   });
 

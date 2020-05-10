@@ -14,6 +14,7 @@ export const POST_INFO = gql`
       caption
       created_at
       url
+      user_id
       User {
         avatar
         id
@@ -58,14 +59,17 @@ function generatePost(post, index, postId) {
 }
 
 function Post({ id = "", match }) {
+  console.log("id, match", id, match);
   const postId = id ? id : match.params.id;
 
-  const { loading, error, data } = useQuery(POST_INFO, {
+  const { loading, data } = useQuery(POST_INFO, {
     variables: { id: postId },
+    onError: (e) => {
+      throw new Error (`Error! ${e.message}`);
+    },
   });
 
   if (loading) return "";
-  if (error) return `Error! ${error.message}`;
 
   const { Post } = data;
 

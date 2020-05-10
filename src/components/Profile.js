@@ -62,7 +62,7 @@ function Profile({ match }) {
   const { loading: userLoading, data: userInfoData } = useQuery(USER_INFO, {
     variables: { id: match.params.id },
     onError: (e) => {
-      return `Error! ${e.message}`;
+      throw new Error (`Error! ${e.message}`)
     },
   });
 
@@ -71,7 +71,7 @@ function Profile({ match }) {
     {
       variables: { id: match.params.id },
       onError: (e) => {
-        return `Error! ${e.message}`;
+        throw new Error (`Error! ${e.message}`)
       },
     }
   );
@@ -81,7 +81,7 @@ function Profile({ match }) {
     {
       variables: { id: match.params.id },
       onError: (e) => {
-        return `Error! ${e.message}`;
+        throw new Error (`Error! ${e.message}`)
       },
     }
   );
