@@ -9,6 +9,7 @@ import Feed from "./Feed";
 import Post from "./Post";
 import Profile from "./Profile";
 import SecuredRoute from "./SecuredRoute";
+import Upload from "./Upload";
 import { useAuth0 } from "../auth/react-auth0-wrapper";
 
 
@@ -68,6 +69,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Header />
+      {isAuthenticated && <Upload />}
       <Switch>
         <Route exact path="/" component={Feed} />
         <Route path={"/post/:id"} component={Post} />
