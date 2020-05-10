@@ -1,17 +1,13 @@
 import React, { useState } from "react";
-import "../styles/App.css";
-import Header from "./Header.js";
-
-// for authentication using auth0
-import { useAuth0 } from "../auth/react-auth0-wrapper";
-
-// for routing
-import { Switch, Route } from "react-router-dom";
-
-// for apollo client
 import { ApolloProvider } from "@apollo/react-hooks";
 import { ApolloClient, HttpLink, InMemoryCache } from "apollo-boost";
 import { setContext } from "apollo-link-context";
+import { Switch, Route } from "react-router-dom";
+import "../styles/App.css";
+import Header from "./Header.js";
+import Feed from "./Feed";
+import { useAuth0 } from "../auth/react-auth0-wrapper";
+
 
 function App() {
   const { isAuthenticated, user } = useAuth0();
@@ -40,7 +36,7 @@ function App() {
 
   // for apollo client
   const httpLink = new HttpLink({
-    uri: "https://instagram-clone-3.herokuapp.com/v1/graphql",
+    uri: "https://instagram-clone-postgres.herokuapp.com/v1/graphql",
   });
 
   const authLink = setContext((_, { headers }) => {
@@ -69,6 +65,9 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Header />
+      <Switch>
+        <Route exact path="/" component={Feed} />
+      </Switch>
     </ApolloProvider>
   );
 }
