@@ -8,4 +8,4 @@ Like posts
 Follow user profiles
 Realtime updates when other users upvote a post, create a new post or follow user profile (updating apollo cache).
 
-Screenshots coming, currently having problems with Postgres DB
+![image](https://user-images.githubusercontent.com/27804269/81498057-faf6a400-92c2-11ea-8cb4-ac043f4fd082.png)
